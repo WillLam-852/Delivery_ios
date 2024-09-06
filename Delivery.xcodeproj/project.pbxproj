@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D683C7C2C8B05E90053D9AE /* DeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683C7B2C8B05E80053D9AE /* DeliveryApp.swift */; };
-		0D683C7E2C8B05E90053D9AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683C7D2C8B05E90053D9AE /* ContentView.swift */; };
-		0D683C802C8B05E90053D9AE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683C7F2C8B05E90053D9AE /* Item.swift */; };
+		0D683C7E2C8B05E90053D9AE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683C7D2C8B05E90053D9AE /* HomeView.swift */; };
 		0D683C822C8B05E90053D9AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D683C812C8B05E90053D9AE /* Assets.xcassets */; };
 		0D683C852C8B05E90053D9AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D683C842C8B05E90053D9AE /* Preview Assets.xcassets */; };
 		0D683C8F2C8B05EA0053D9AE /* DeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683C8E2C8B05EA0053D9AE /* DeliveryTests.swift */; };
@@ -17,6 +16,9 @@
 		0D683C9B2C8B05EA0053D9AE /* DeliveryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683C9A2C8B05EA0053D9AE /* DeliveryUITestsLaunchTests.swift */; };
 		0D683CAB2C8B06CA0053D9AE /* Delivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CAA2C8B06CA0053D9AE /* Delivery.swift */; };
 		0D683CAE2C8B07230053D9AE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CAD2C8B07230053D9AE /* String.swift */; };
+		0D683CB12C8B076F0053D9AE /* DeliveryAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB02C8B076F0053D9AE /* DeliveryAPIResponse.swift */; };
+		0D683CB32C8B08E00053D9AE /* DeliveryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB22C8B08E00053D9AE /* DeliveryRow.swift */; };
+		0D683CB62C8B09080053D9AE /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB52C8B09080053D9AE /* FavouriteButton.swift */; };
 		5091CE6B6EF85C3B2F1C919C /* Pods_Delivery_DeliveryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE2A89C25F37288735D52C /* Pods_Delivery_DeliveryUITests.framework */; };
 		6AF50379061BA009E9D3F9DE /* Pods_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9B4FA0E7521440379CDDAD /* Pods_Delivery.framework */; };
 		96E8E1334EF56EB820546F96 /* Pods_DeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BDC92DFD0187857CF2FFE3 /* Pods_DeliveryTests.framework */; };
@@ -43,8 +45,7 @@
 		0C9B4FA0E7521440379CDDAD /* Pods_Delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D683C782C8B05E80053D9AE /* Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D683C7B2C8B05E80053D9AE /* DeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApp.swift; sourceTree = "<group>"; };
-		0D683C7D2C8B05E90053D9AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0D683C7F2C8B05E90053D9AE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0D683C7D2C8B05E90053D9AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0D683C812C8B05E90053D9AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D683C842C8B05E90053D9AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0D683C8A2C8B05EA0053D9AE /* DeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +55,9 @@
 		0D683C9A2C8B05EA0053D9AE /* DeliveryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0D683CAA2C8B06CA0053D9AE /* Delivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delivery.swift; sourceTree = "<group>"; };
 		0D683CAD2C8B07230053D9AE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		0D683CB02C8B076F0053D9AE /* DeliveryAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAPIResponse.swift; sourceTree = "<group>"; };
+		0D683CB22C8B08E00053D9AE /* DeliveryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRow.swift; sourceTree = "<group>"; };
+		0D683CB52C8B09080053D9AE /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 		53AD8FC290320AC43A9A00EA /* Pods-Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery.debug.xcconfig"; path = "Target Support Files/Pods-Delivery/Pods-Delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		5F518EB514898A4DFC750D8B /* Pods-Delivery-DeliveryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery-DeliveryUITests.debug.xcconfig"; path = "Target Support Files/Pods-Delivery-DeliveryUITests/Pods-Delivery-DeliveryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		75E64C2DE4DD2CA4E53E4100 /* Pods-Delivery-DeliveryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery-DeliveryUITests.release.xcconfig"; path = "Target Support Files/Pods-Delivery-DeliveryUITests/Pods-Delivery-DeliveryUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,10 +123,9 @@
 			children = (
 				0D683CA82C8B06B70053D9AE /* Models */,
 				0D683CA72C8B06B00053D9AE /* Views */,
+				0D683CB42C8B08F60053D9AE /* Components */,
 				0D683CAC2C8B06F30053D9AE /* Extensions */,
 				0D683C7B2C8B05E80053D9AE /* DeliveryApp.swift */,
-				0D683C7D2C8B05E90053D9AE /* ContentView.swift */,
-				0D683C7F2C8B05E90053D9AE /* Item.swift */,
 				0D683C812C8B05E90053D9AE /* Assets.xcassets */,
 				0D683C832C8B05E90053D9AE /* Preview Content */,
 			);
@@ -165,6 +168,7 @@
 		0D683CA82C8B06B70053D9AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0D683CAF2C8B07580053D9AE /* APIResponses */,
 				0D683CAA2C8B06CA0053D9AE /* Delivery.swift */,
 			);
 			path = Models;
@@ -173,6 +177,8 @@
 		0D683CA92C8B06BD0053D9AE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0D683C7D2C8B05E90053D9AE /* HomeView.swift */,
+				0D683CB22C8B08E00053D9AE /* DeliveryRow.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -183,6 +189,22 @@
 				0D683CAD2C8B07230053D9AE /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D683CAF2C8B07580053D9AE /* APIResponses */ = {
+			isa = PBXGroup;
+			children = (
+				0D683CB02C8B076F0053D9AE /* DeliveryAPIResponse.swift */,
+			);
+			path = APIResponses;
+			sourceTree = "<group>";
+		};
+		0D683CB42C8B08F60053D9AE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D683CB52C8B09080053D9AE /* FavouriteButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		4E4B9411906C647F7D919C6B /* Frameworks */ = {
@@ -410,11 +432,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D683C7E2C8B05E90053D9AE /* ContentView.swift in Sources */,
+				0D683CB32C8B08E00053D9AE /* DeliveryRow.swift in Sources */,
+				0D683C7E2C8B05E90053D9AE /* HomeView.swift in Sources */,
+				0D683CB62C8B09080053D9AE /* FavouriteButton.swift in Sources */,
 				0D683CAB2C8B06CA0053D9AE /* Delivery.swift in Sources */,
 				0D683CAE2C8B07230053D9AE /* String.swift in Sources */,
-				0D683C802C8B05E90053D9AE /* Item.swift in Sources */,
 				0D683C7C2C8B05E90053D9AE /* DeliveryApp.swift in Sources */,
+				0D683CB12C8B076F0053D9AE /* DeliveryAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
