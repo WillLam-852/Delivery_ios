@@ -25,7 +25,7 @@ struct DeliveryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(modelContext: sharedModelContainer.mainContext)
         }
         .modelContainer(sharedModelContainer)
     }

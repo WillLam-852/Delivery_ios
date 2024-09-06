@@ -15,7 +15,6 @@ struct FavouriteButton: View {
     var body: some View {
         if self.isInteractive {
             Button(action: {
-                self.isFilled.toggle()
                 self.action()
             }, label: {
                 Image(systemName: isFilled ? "heart.fill" : "heart")

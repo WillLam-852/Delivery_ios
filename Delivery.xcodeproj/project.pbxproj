@@ -19,6 +19,9 @@
 		0D683CB12C8B076F0053D9AE /* DeliveryAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB02C8B076F0053D9AE /* DeliveryAPIResponse.swift */; };
 		0D683CB32C8B08E00053D9AE /* DeliveryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB22C8B08E00053D9AE /* DeliveryRow.swift */; };
 		0D683CB62C8B09080053D9AE /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB52C8B09080053D9AE /* FavouriteButton.swift */; };
+		0D683CB92C8B0B450053D9AE /* DeliveryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CB82C8B0B450053D9AE /* DeliveryDetailView.swift */; };
+		0D683CBB2C8B22BE0053D9AE /* HomeView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CBA2C8B22BE0053D9AE /* HomeView-ViewModel.swift */; };
+		0D683CBD2C8B27A20053D9AE /* DeliveryDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D683CBC2C8B27A20053D9AE /* DeliveryDetailView-ViewModel.swift */; };
 		5091CE6B6EF85C3B2F1C919C /* Pods_Delivery_DeliveryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CE2A89C25F37288735D52C /* Pods_Delivery_DeliveryUITests.framework */; };
 		6AF50379061BA009E9D3F9DE /* Pods_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9B4FA0E7521440379CDDAD /* Pods_Delivery.framework */; };
 		96E8E1334EF56EB820546F96 /* Pods_DeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BDC92DFD0187857CF2FFE3 /* Pods_DeliveryTests.framework */; };
@@ -58,6 +61,9 @@
 		0D683CB02C8B076F0053D9AE /* DeliveryAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAPIResponse.swift; sourceTree = "<group>"; };
 		0D683CB22C8B08E00053D9AE /* DeliveryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRow.swift; sourceTree = "<group>"; };
 		0D683CB52C8B09080053D9AE /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
+		0D683CB82C8B0B450053D9AE /* DeliveryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailView.swift; sourceTree = "<group>"; };
+		0D683CBA2C8B22BE0053D9AE /* HomeView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView-ViewModel.swift"; sourceTree = "<group>"; };
+		0D683CBC2C8B27A20053D9AE /* DeliveryDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDetailView-ViewModel.swift"; sourceTree = "<group>"; };
 		53AD8FC290320AC43A9A00EA /* Pods-Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery.debug.xcconfig"; path = "Target Support Files/Pods-Delivery/Pods-Delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		5F518EB514898A4DFC750D8B /* Pods-Delivery-DeliveryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery-DeliveryUITests.debug.xcconfig"; path = "Target Support Files/Pods-Delivery-DeliveryUITests/Pods-Delivery-DeliveryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		75E64C2DE4DD2CA4E53E4100 /* Pods-Delivery-DeliveryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery-DeliveryUITests.release.xcconfig"; path = "Target Support Files/Pods-Delivery-DeliveryUITests/Pods-Delivery-DeliveryUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				0D683CA92C8B06BD0053D9AE /* Home */,
+				0D683CB72C8B0B350053D9AE /* DeliveryDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				0D683C7D2C8B05E90053D9AE /* HomeView.swift */,
+				0D683CBA2C8B22BE0053D9AE /* HomeView-ViewModel.swift */,
 				0D683CB22C8B08E00053D9AE /* DeliveryRow.swift */,
 			);
 			path = Home;
@@ -205,6 +213,15 @@
 				0D683CB52C8B09080053D9AE /* FavouriteButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		0D683CB72C8B0B350053D9AE /* DeliveryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0D683CB82C8B0B450053D9AE /* DeliveryDetailView.swift */,
+				0D683CBC2C8B27A20053D9AE /* DeliveryDetailView-ViewModel.swift */,
+			);
+			path = DeliveryDetail;
 			sourceTree = "<group>";
 		};
 		4E4B9411906C647F7D919C6B /* Frameworks */ = {
@@ -434,9 +451,12 @@
 			files = (
 				0D683CB32C8B08E00053D9AE /* DeliveryRow.swift in Sources */,
 				0D683C7E2C8B05E90053D9AE /* HomeView.swift in Sources */,
+				0D683CBD2C8B27A20053D9AE /* DeliveryDetailView-ViewModel.swift in Sources */,
+				0D683CBB2C8B22BE0053D9AE /* HomeView-ViewModel.swift in Sources */,
 				0D683CB62C8B09080053D9AE /* FavouriteButton.swift in Sources */,
 				0D683CAB2C8B06CA0053D9AE /* Delivery.swift in Sources */,
 				0D683CAE2C8B07230053D9AE /* String.swift in Sources */,
+				0D683CB92C8B0B450053D9AE /* DeliveryDetailView.swift in Sources */,
 				0D683C7C2C8B05E90053D9AE /* DeliveryApp.swift in Sources */,
 				0D683CB12C8B076F0053D9AE /* DeliveryAPIResponse.swift in Sources */,
 			);
