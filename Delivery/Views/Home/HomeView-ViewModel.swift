@@ -48,6 +48,10 @@ extension HomeView {
             }
         }
         
+        func fetchDeliveriesFromServer() {
+            
+        }
+        
     }
     
 }

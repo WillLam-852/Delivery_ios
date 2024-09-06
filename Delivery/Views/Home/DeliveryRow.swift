@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DeliveryRow: View {
-    let delivery: Delivery
+    @ObservedObject var delivery: Delivery
     
     var body: some View {
         HStack {
@@ -40,9 +40,8 @@ struct DeliveryRow: View {
             
             VStack(alignment: .trailing, spacing: 10.0) {
                 FavouriteButton(
-                    isFilled: delivery.isFavourite,
-                    isInteractive: false,
-                    action: {}
+                    isFavourite: $delivery.isFavourite,
+                    isInteractive: false
                 )
                 
                 if let totalFee = delivery.totalFee {

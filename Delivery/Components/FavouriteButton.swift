@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct FavouriteButton: View {
-    @State var isFilled: Bool
+    @Binding var isFavourite: Bool
     var isInteractive: Bool
-    var action: () -> Void
     
     var body: some View {
         if self.isInteractive {
             Button(action: {
-                self.action()
+                self.isFavourite.toggle()
             }, label: {
-                Image(systemName: isFilled ? "heart.fill" : "heart")
+                Image(systemName: self.isFavourite ? "heart.fill" : "heart")
                     .font(.system(size: 20))
             })
         } else {
-            if self.isFilled {
+            if self.isFavourite {
                 Image(systemName: "heart.fill")
                     .foregroundColor(.blue)
                     .font(.system(size: 20))
@@ -30,14 +29,8 @@ struct FavouriteButton: View {
             }
         }
     }
-    
-    init(isFilled: Bool, isInteractive: Bool, action: @escaping () -> Void) {
-        self.isFilled = isFilled
-        self.isInteractive = isInteractive
-        self.action = action
-    }
 }
 
-#Preview {
-    return FavouriteButton(isFilled: false, isInteractive: true, action: {})
-}
+//#Preview {
+//    return FavouriteButton(isFavourite: false, isInteractive: true, action: {})
+//}

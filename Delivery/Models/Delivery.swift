@@ -9,13 +9,17 @@ import Foundation
 import SwiftData
 
 @Model
-final class Delivery {
+final class Delivery: ObservableObject {
     var id: String
     var remarks: String
     var pickupTime: Date
     var goodsPicture: URL
     var deliveryFee: String
     var surcharge: String
+    var route: Route
+    var sender: Sender
+    var isFavourite: Bool
+    
     var totalFee: String? {
         get {
             if let deliveryFeeDouble = self.deliveryFee.convertToDouble(),
@@ -25,10 +29,7 @@ final class Delivery {
             return nil
         }
     }
-    var route: Route
-    var sender: Sender
-    var isFavourite: Bool
-    
+
     init(id: String, remarks: String, pickupTime: Date, goodsPicture: URL, deliveryFee: String, surcharge: String, route: Route, sender: Sender, isFavourite: Bool = false) {
         self.id = id
         self.remarks = remarks

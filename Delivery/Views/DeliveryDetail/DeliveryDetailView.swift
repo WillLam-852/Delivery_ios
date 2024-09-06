@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct DeliveryDetailView: View {
-    @Bindable var delivery: Delivery
+    @ObservedObject var delivery: Delivery
     
     var body: some View {
         ScrollView {
@@ -23,11 +23,9 @@ struct DeliveryDetailView: View {
                     }
                     Spacer()
                     FavouriteButton(
-                        isFilled: delivery.isFavourite,
+                        isFavourite: $delivery.isFavourite,
                         isInteractive: true
-                    ) {
-                        delivery.isFavourite.toggle()
-                    }
+                    )
                 }
                 
                 Divider()

@@ -21,7 +21,7 @@ struct HomeView: View {
                             DeliveryRow(delivery: deliveries[index])
                                 .onAppear {
                                     if index == deliveries.count - 1 {
-//                                        viewModel.fetchDeliveriesFromServer()
+                                        viewModel.fetchDeliveriesFromServer()
                                     }
                                 }
                         }
@@ -43,7 +43,7 @@ struct HomeView: View {
         }
         .onAppear {
             if deliveries.isEmpty {
-//                viewModel.fetchDeliveriesFromServer()
+                viewModel.fetchDeliveriesFromServer()
             }
         }
     }
