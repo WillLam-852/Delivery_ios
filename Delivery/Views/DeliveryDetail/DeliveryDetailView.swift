@@ -16,10 +16,20 @@ struct DeliveryDetailView: View {
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
-                        Text("From: \(delivery.route.start)")
-                        Text("To: \(delivery.route.end)")
-                        Text("Time: \(delivery.pickupTime, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                        Text("ID: \(delivery.id)")
+                        Text("From:")
+                        Text("To:")
+                        Text("Time:")
+                        Text("ID:")
+                    }
+                    VStack(alignment: .leading) {
+                        Text(delivery.route.start)
+                            .font(.headline)
+                        Text(delivery.route.end)
+                            .font(.headline)
+                        Text(delivery.pickupTime, format: Date.FormatStyle(date: .numeric, time: .standard))
+                            .font(.headline)
+                        Text(delivery.id)
+                            .font(.headline)
                     }
                     Spacer()
                     FavouriteButton(
@@ -32,23 +42,7 @@ struct DeliveryDetailView: View {
                 
                 Text("Goods to deliver")
                     .font(.title)
-                AsyncImage(url: delivery.goodsPicture) { phase in
-                    switch phase {
-                        case .empty:
-                            ProgressView()
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        case .failure:
-                            Image(systemName: "photo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .foregroundColor(.gray)
-                        @unknown default:
-                            EmptyView()
-                    }
-                }
+                GoodsPictureAsyncImage(url: delivery.goodsPicture)
                 
                 Divider()
                 
@@ -56,8 +50,10 @@ struct DeliveryDetailView: View {
                     Text("Delivery Fee")
                         .font(.title)
                     Spacer()
-                    Text(delivery.deliveryFee)
-                    Text(delivery.surcharge)
+                    if let totalFee = delivery.totalFee {
+                        Text(totalFee)
+                            .font(.headline)
+                    }
                 }
                 
                 Divider()
@@ -70,10 +66,21 @@ struct DeliveryDetailView: View {
                 
                 Text("Sender")
                     .font(.title)
-                Text(delivery.sender.name)
-                Text(delivery.sender.email)
-                Text(delivery.sender.phone)
-                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Name:")
+                        Text("Email:")
+                        Text("Phone:")
+                    }
+                    VStack(alignment: .leading) {
+                        Text(delivery.sender.name)
+                            .font(.headline)
+                        Text(delivery.sender.email)
+                            .font(.headline)
+                        Text(delivery.sender.phone)
+                            .font(.headline)
+                    }
+                }
                 
             }
             .padding()
@@ -84,30 +91,23 @@ struct DeliveryDetailView: View {
 
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Delivery.self, configurations: config)
-        let delivery = Delivery(
-            id: "5dd5f3a7156bae72fa5a5d6c",
-            remarks: "Minim veniam minim nisi ullamco consequat anim reprehenderit laboris aliquip voluptate sit.",
-            pickupTime: "2014-10-06T10:45:38-08:00".convertToDate()!,
-            goodsPicture: URL(string: "https://loremflickr.com/320/240/cat?lock=9953")!,
-            deliveryFee: "$92.14",
-            surcharge: "136.46",
-            route: Route(
-                start: "Noble Street",
-                end: "Montauk Court"
-            ),
-            sender: Sender(
-                phone: "+1 (899) 523-3905",
-                name: "Harding Welch",
-                email: "hardingwelch@comdom.com"
-            ),
-            isFavourite: false
-        )
-        return DeliveryDetailView(delivery: delivery)
-            .modelContainer(container)
-    } catch {
-        return Text("Failed to create container: \(error.localizedDescription)")
-    }
+    let delivery = Delivery(
+        id: "5dd5f3a7156bae72fa5a5d6c",
+        remarks: "Minim veniam minim nisi ullamco consequat anim reprehenderit laboris aliquip voluptate sit.",
+        pickupTime: "2014-10-06T10:45:38-08:00".convertToDate()!,
+        goodsPicture: URL(string: "https://loremflickr.com/320/240/cat?lock=9953")!,
+        deliveryFee: "$92.14",
+        surcharge: "136.46",
+        route: Route(
+            start: "Noble Street",
+            end: "Montauk Court"
+        ),
+        sender: Sender(
+            phone: "+1 (899) 523-3905",
+            name: "Harding Welch",
+            email: "hardingwelch@comdom.com"
+        ),
+        isFavourite: false
+    )
+    return DeliveryDetailView(delivery: delivery)
 }

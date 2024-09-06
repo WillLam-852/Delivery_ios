@@ -12,28 +12,23 @@ struct DeliveryRow: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: delivery.goodsPicture) { phase in
-                switch phase {
-                    case .empty:
-                        ProgressView()
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    case .failure:
-                        Image(systemName: "photo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.gray)
-                    @unknown default:
-                        EmptyView()
-                }
-            }
+            GoodsPictureAsyncImage(url: delivery.goodsPicture)
             .frame(width: 100, height: 100)
             
-            VStack(alignment: .leading) {
-                Text("From: \(delivery.route.start)")
-                Text("To: \(delivery.route.end)")
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("From:")
+                        .font(.subheadline)
+                    Text("To:")
+                        .font(.subheadline)
+                }
+                VStack(alignment: .leading) {
+                    Text(delivery.route.start)
+                        .font(.headline)
+                    Text(delivery.route.end)
+                        .font(.headline)
+                }
+
             }
             
             Spacer()
@@ -46,16 +41,31 @@ struct DeliveryRow: View {
                 
                 if let totalFee = delivery.totalFee {
                     Text(totalFee)
-                        .fontWeight(.bold)
+                        .font(.headline)
                 }
             }
         }
     }
 }
 
-//#Preview {
-//    Group {
-//        DeliveryRow(delivery: testDeliveries[0])
-//        DeliveryRow(delivery: testDeliveries[1])
-//    }
-//}
+#Preview {
+    let delivery = Delivery(
+        id: "5dd5f3a7156bae72fa5a5d6c",
+        remarks: "Minim veniam minim nisi ullamco consequat anim reprehenderit laboris aliquip voluptate sit.",
+        pickupTime: "2014-10-06T10:45:38-08:00".convertToDate()!,
+        goodsPicture: URL(string: "https://loremflickr.com/320/240/cat?lock=9953")!,
+        deliveryFee: "$92.14",
+        surcharge: "136.46",
+        route: Route(
+            start: "Noble Street",
+            end: "Montauk Court"
+        ),
+        sender: Sender(
+            phone: "+1 (899) 523-3905",
+            name: "Harding Welch",
+            email: "hardingwelch@comdom.com"
+        ),
+        isFavourite: true
+    )
+    return DeliveryRow(delivery: delivery)
+}

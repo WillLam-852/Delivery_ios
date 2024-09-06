@@ -31,6 +31,7 @@ struct FavouriteButton: View {
     }
 }
 
-//#Preview {
-//    return FavouriteButton(isFavourite: false, isInteractive: true, action: {})
-//}
+#Preview {
+    @State var isFavourite = false
+    return FavouriteButton(isFavourite: $isFavourite, isInteractive: true)
+}
