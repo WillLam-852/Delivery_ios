@@ -24,7 +24,7 @@ final class Delivery: ObservableObject {
         get {
             if let deliveryFeeDouble = self.deliveryFee.convertToDouble(),
                let surchargeDouble = self.surcharge.convertToDouble() {
-                return "$\(deliveryFeeDouble + surchargeDouble)"
+                return "$\((deliveryFeeDouble + surchargeDouble).rounded(toPlaces: 2))"
             }
             return nil
         }

@@ -16,18 +16,31 @@ final class DeliveryUITests: XCTestCase {
         continueAfterFailure = false
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        let app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    
+    func testFavouriteButtonToggle() throws {
         let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        // Assuming the FavouriteButton is on the first screen
+        let favouriteButton = app.buttons["heart"] // Identifier for the button
+        
+        // Tap the button to toggle
+        XCTAssertTrue(favouriteButton.exists)
+        favouriteButton.tap()
+        
+        // Check if the state changed
+        let filledHeartButton = app.buttons["heart.fill"]
+        XCTAssertTrue(filledHeartButton.exists)
+        
+        // Toggle back
+        filledHeartButton.tap()
+        XCTAssertTrue(favouriteButton.exists)
     }
 
     func testLaunchPerformance() throws {
