@@ -42,6 +42,7 @@ struct HomeView: View {
                     Image(systemName: "chevron.left")
                 })
                 .disabled(self.viewModel.page == 1)
+                .accessibilityIdentifier("previous_page")
                 
                 Spacer()
                 Text("Page :   \(self.viewModel.page) / \(self.viewModel.totalPage)")
@@ -53,6 +54,7 @@ struct HomeView: View {
                     Image(systemName: "chevron.right")
                 })
                 .disabled(self.viewModel.page == self.viewModel.totalPage)
+                .accessibilityIdentifier("next_page")
                 Spacer()
             }
             .padding(.top)
