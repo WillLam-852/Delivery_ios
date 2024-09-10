@@ -56,12 +56,6 @@ struct HomeView: View {
                 .disabled(self.viewModel.page == self.viewModel.totalPage)
                 .accessibilityIdentifier("next_page")
                 Spacer()
-                
-                Button(action: {
-                    self.viewModel.deleteAllDeliveries()
-                }, label: {
-                    Text("Delete")
-                })
             }
             .padding(.top)
         } detail: {
