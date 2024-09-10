@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    @State private var viewModel: ViewModel
+    @StateObject private var viewModel: ViewModel
     
     var body: some View {
         NavigationSplitView {
@@ -46,16 +46,24 @@ struct HomeView: View {
                 
                 Spacer()
                 Text("Page :   \(self.viewModel.page) / \(self.viewModel.totalPage)")
+                Text("\(self.viewModel.deliveries.count)")
+                Text("\(self.viewModel.displayedDeliveriesForThisPage.count)")
                 Spacer()
                 
                 Button(action: {
-                    self.viewModel.increasePage()
+                    self.viewModel.increasePage()                      
                 }, label: {
                     Image(systemName: "chevron.right")
                 })
                 .disabled(self.viewModel.page == self.viewModel.totalPage)
                 .accessibilityIdentifier("next_page")
                 Spacer()
+                
+                Button(action: {
+                    self.viewModel.deleteAllDeliveries()
+                }, label: {
+                    Text("Delete")
+                })
             }
             .padding(.top)
         } detail: {
@@ -68,7 +76,7 @@ struct HomeView: View {
             
     init(modelContext: ModelContext) {
         let viewModel = ViewModel(modelContext: modelContext)
-        _viewModel = State(initialValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 }
 

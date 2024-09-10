@@ -10,35 +10,38 @@ import SwiftData
 
 extension HomeView {
     
-    @Observable
-    class ViewModel {
+    class ViewModel: ObservableObject {
         
             // MARK: - Variables
         
         var modelContext: ModelContext
         
             /// All Delivery items in the local storage
-        var deliveries: [Delivery] = []
+        @Published var deliveries: [Delivery] = []
             /// Displayed Delivery items for this page
         var displayedDeliveriesForThisPage: [Delivery] {
             let firstIndex = (self.page - 1) * self.maxItemPerPage
             if self.page != self.totalPage {
                 let lastIndex = self.page * self.maxItemPerPage
                 let slice = self.deliveries[firstIndex..<lastIndex]
+                print(Array(slice).count)
                 return Array(slice)
             } else {
                 let slice = self.deliveries[firstIndex...]
+                print(Array(slice).count)
                 return Array(slice)
             }
         }
-            /// Query string parameter for fetching deliveries from server
-        var offset = 0
+        
             /// Pagination for HomeView (Start from 1)
-        var page = 1
+        @Published var page = 1
+
+            /// Query string parameter for fetching deliveries from server
+        private var offset = 0
             /// Maximum item per page
         private let maxItemPerPage = 20
             /// Indicator for fetching data from server
-        var isFetching = false
+        private var isFetching = false
             /// Total number of pages
         var totalPage: Int {
             get {
@@ -56,11 +59,13 @@ extension HomeView {
             // MARK: - Methods
         
         func fetchDeliveriesFromLocal() {
-            do {
-                let descriptor = FetchDescriptor<Delivery>()
-                self.deliveries = try self.modelContext.fetch(descriptor)
-            } catch {
-                print("Fetch failed")
+            DispatchQueue.main.async {
+                do {
+                    let descriptor = FetchDescriptor<Delivery>()
+                    self.deliveries = try self.modelContext.fetch(descriptor)
+                } catch {
+                    print("Fetch failed")
+                }
             }
         }
         
@@ -68,7 +73,7 @@ extension HomeView {
         func fetchDeliveriesFromServer() {
             guard !self.isFetching && self.page == self.totalPage else { return }
             self.isFetching = true
-                        
+            
             var urlComponents = URLComponents(string: K.serverAddress)
             urlComponents?.queryItems = [
                 URLQueryItem(name: "offset", value: String(self.offset))
@@ -82,9 +87,12 @@ extension HomeView {
                         do {
                             let deliveryResponses = try JSONDecoder().decode([DeliveryAPIResponse].self, from: data)
                             let newDeliveries = deliveryResponses.map { $0.convertToDelivery() }
-                            self.deliveries.append(contentsOf: newDeliveries)
+                            for newDelivery in newDeliveries {
+                                self.modelContext.insert(newDelivery)
+                            }
                             self.isFetching = false
                             self.offset += 1
+                            self.fetchDeliveriesFromLocal()
                         } catch {
                             print("Error decoding JSON: \(error.localizedDescription)")
                         }
@@ -97,12 +105,16 @@ extension HomeView {
         
         
         func increasePage() {
-            self.page += 1
+            DispatchQueue.main.async {
+                self.page += 1
+            }
         }
         
         
         func decreasePage() {
-            self.page -= 1
+            DispatchQueue.main.async {
+                self.page -= 1
+            }
         }
         
         
