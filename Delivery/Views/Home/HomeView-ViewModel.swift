@@ -24,11 +24,9 @@ extension HomeView {
             if self.page != self.totalPage {
                 let lastIndex = self.page * self.maxItemPerPage
                 let slice = self.deliveries[firstIndex..<lastIndex]
-                print(Array(slice).count)
                 return Array(slice)
             } else {
                 let slice = self.deliveries[firstIndex...]
-                print(Array(slice).count)
                 return Array(slice)
             }
         }
@@ -117,42 +115,6 @@ extension HomeView {
             }
         }
         
-        
-        // These 2 functions are for testing only
-        
-        func addDelivery() {
-            let newDelivery = Delivery(
-                id: "5dd5f3a7156bae72fa5a5d6c",
-                remarks: "Minim veniam minim nisi ullamco consequat anim reprehenderit laboris aliquip voluptate sit.",
-                pickupTime: "2014-10-06T10:45:38-08:00".convertToDate()!,
-                goodsPicture: URL(string: "https://loremflickr.com/320/240/cat?lock=9953")!,
-                deliveryFee: "$92.14",
-                surcharge: "136.46",
-                route: Route(
-                    start: "Noble Street",
-                    end: "Montauk Court"
-                ),
-                sender: Sender(
-                    phone: "+1 (899) 523-3905",
-                    name: "Harding Welch",
-                    email: "hardingwelch@comdom.com"
-                ),
-                isFavourite: false
-            )
-            self.modelContext.insert(newDelivery)
-            self.fetchDeliveriesFromLocal()
-        }
-        
-        
-        func deleteAllDeliveries() {
-            do {
-                try self.modelContext.delete(model: Delivery.self)
-                self.fetchDeliveriesFromLocal()
-            } catch {
-                print("Delete Delivery Fail: \(error.localizedDescription)")
-            }
-        }
-
     }
 
     
