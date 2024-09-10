@@ -46,8 +46,6 @@ struct HomeView: View {
                 
                 Spacer()
                 Text("Page :   \(self.viewModel.page) / \(self.viewModel.totalPage)")
-                Text("\(self.viewModel.deliveries.count)")
-                Text("\(self.viewModel.displayedDeliveriesForThisPage.count)")
                 Spacer()
                 
                 Button(action: {
